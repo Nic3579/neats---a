@@ -23,6 +23,13 @@ loops.everyInterval(1000, function () {
     }
 })
 basic.forever(function () {
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        `)
     // alarm
     if (Alarm_on == 1 && security_enabled == 1) {
         basic.showLeds(`
