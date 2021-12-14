@@ -1,5 +1,6 @@
 input.onButtonPressed(Button.A, function () {
     Alarm_on = 0
+    radio.sendString("ALARMOFF")
     basic.showLeds(`
         # . . . #
         . . . . .
