@@ -1,7 +1,6 @@
 input.onButtonPressed(Button.A, function () {
     Alarm_on = 0
     countdown = 30
-    radio.sendString("ALARMOFF")
     basic.showLeds(`
         # . . . #
         . . . . .
@@ -48,7 +47,7 @@ let security_enabled = 0
 let countdown = 0
 radio.setGroup(17)
 countdown = 10
-security_enabled = 0
+security_enabled = 1
 Alarm_on = 0
 pins.setAudioPin(AnalogPin.P0)
 music.setVolume(255)
