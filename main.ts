@@ -1,6 +1,5 @@
 input.onButtonPressed(Button.A, function () {
     Alarm_on = 0
-    countdown = 30
     basic.showLeds(`
         # . . . #
         . . . . .
@@ -10,7 +9,6 @@ input.onButtonPressed(Button.A, function () {
         `)
 })
 radio.onReceivedString(function (receivedString) {
-    countdown = 30
     if (receivedString == "ALARM") {
         Alarm_on = 1
     }
@@ -44,29 +42,11 @@ input.onButtonPressed(Button.B, function () {
 })
 let Alarm_on = 0
 let security_enabled = 0
-let countdown = 0
 radio.setGroup(17)
-countdown = 10
 security_enabled = 1
 Alarm_on = 0
 pins.setAudioPin(AnalogPin.P0)
 music.setVolume(255)
-// this is a part of the pinging system; every 30 sec. the other micro:bit sends a message and if it doesn't respond within 60 sec of the last time it sent a message, the alarm goes off
-loops.everyInterval(1000, function () {
-    if (security_enabled == 1) {
-        countdown += -1
-        if (countdown <= 0) {
-            Alarm_on = 1
-            basic.showLeds(`
-                . . . . .
-                . # . # .
-                . . # . .
-                . # . # .
-                . . . . .
-                `)
-        }
-    }
-})
 basic.forever(function () {
     basic.showLeds(`
         . . . . .
